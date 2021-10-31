@@ -8,7 +8,6 @@ import com.example.repository.UserRepository;
 import com.example.security.JwtTokenProvider;
 import com.example.service.UserService;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,20 +25,17 @@ import javax.validation.Valid;
 @AllArgsConstructor
 public class UserController {
 
-    @Autowired
     AuthenticationManager authenticationManager;
 
-    @Autowired
     UserService userService;
 
-    @Autowired
     UserRepository userRepository;
 
-    @Autowired
     PasswordEncoder passwordEncoder;
 
-    @Autowired
+    final
     JwtTokenProvider jwtTokenProvider;
+
 
 
     @PostMapping("register")

@@ -1,10 +1,10 @@
-POST http://localhost:8082/api/auth/register
+POST http://localhost:8081/api/auth/register
 Content-Type: application/json
 
 {
-  "firstName": "Ramz",
-  "userName": "Ramz",
-  "email": "ramz@inbox.ru",
+  "firstName": "Samiyya",
+  "userName": "Samiyya",
+  "email": "samiyya@inbox.ru",
   "password": "root123"
 }
 

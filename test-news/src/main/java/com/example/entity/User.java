@@ -34,7 +34,7 @@ public class User extends AbsEntity implements UserDetails {
 
     private String password;
 
-    private byte age;
+    private String age;
 
     @ManyToMany
     @JoinTable(name = "user_role",
@@ -81,7 +81,7 @@ public class User extends AbsEntity implements UserDetails {
 
 
 
-    public User(String firstName, String userName, String email, String password, Set<Role> roles, boolean enabled, byte age) {
+    public User(String firstName, String userName, String email, String password, Set<Role> roles, boolean enabled, String age) {
         this.firstName = firstName;
         this.userName = userName;
         this.email = email;

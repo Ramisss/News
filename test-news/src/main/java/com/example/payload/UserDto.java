@@ -24,9 +24,9 @@ public class UserDto {
 
     private String password;
 
-    private byte age;
+    private String age;
 
-    public UserDto(String firstName, String userName, String email, String phoneNumber, String password, byte age) {
+    public UserDto(String firstName, String userName, String email, String phoneNumber, String password, String age) {
         this.firstName = firstName;
         this.userName = userName;
         this.email = email;

@@ -2,7 +2,6 @@ package com.example.config;
 
 import com.example.security.JwtFilter;
 import com.example.service.AuthService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -21,8 +20,12 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(securedEnabled = true, jsr250Enabled = true, prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-    @Autowired
+    final
     AuthService authService;
+
+    public SecurityConfig(AuthService authService) {
+        this.authService = authService;
+    }
 
     @Bean
     PasswordEncoder passwordEncoder() {

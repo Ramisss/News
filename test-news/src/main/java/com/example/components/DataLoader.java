@@ -6,6 +6,7 @@ import com.example.entity.User;
 import com.example.entity.enums.RoleName;
 import com.example.repository.RoleRepository;
 import com.example.repository.UserRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
@@ -16,20 +17,25 @@ import java.util.Collections;
 
 
 @Component
+@AllArgsConstructor
 public class DataLoader implements CommandLineRunner {
 
     @Value("${spring.datasource.initialization-mode}")
     private String initialMode;
 
-    @Autowired
     UserRepository userRepository;
 
 
-    @Autowired
     PasswordEncoder passwordEncoder;
 
-    @Autowired
     RoleRepository roleRepository;
+
+    @Autowired
+    public DataLoader(UserRepository userRepository, PasswordEncoder passwordEncoder, RoleRepository roleRepository) {
+        this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
+        this.roleRepository = roleRepository;
+    }
 
 
     @Override
@@ -46,7 +52,7 @@ public class DataLoader implements CommandLineRunner {
             user1.setPassword(passwordEncoder.encode("root123"));
             user1.setRoles(Collections.singleton(roleRepository.findByRoleName(RoleName.ROLE_ADMIN)));
             user1.setEnabled(true);
-            user1.setAge((byte) 33);
+            user1.setAge("33");
             userRepository.save(user1);
 
         }
