@@ -1,35 +1,34 @@
 package com.example.entity;
 
 import com.example.entity.templete.AbsEntity;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.Hibernate;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.util.Collection;
+import java.util.Objects;
 import java.util.Set;
 
 
-@EqualsAndHashCode(callSuper = true)
-@Data
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
 @AllArgsConstructor
-@NoArgsConstructor
 @Entity(name = "users")
 public class User extends AbsEntity implements UserDetails {
 
-    @NotNull
     private String firstName;
 
-    @NotNull
+    @Column(nullable = false, unique = true)
     private String userName;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String email;
 
+    @Column(nullable = false, unique = true)
     private String phoneNumber;
 
     private String password;
@@ -40,6 +39,7 @@ public class User extends AbsEntity implements UserDetails {
     @JoinTable(name = "user_role",
             joinColumns = {@JoinColumn(name = "user_id")},
             inverseJoinColumns = {@JoinColumn(name = "role_id")})
+    @ToString.Exclude
     private Set<Role> roles;
 
     private boolean enabled=true;
@@ -51,7 +51,7 @@ public class User extends AbsEntity implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return (Collection<? extends GrantedAuthority>) roles;
+        return roles;
     }
 
     @Override
@@ -89,5 +89,18 @@ public class User extends AbsEntity implements UserDetails {
         this.roles = roles;
         this.enabled = enabled;
         this.age = age;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        User user = (User) o;
+        return Objects.equals(getId(), user.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return 0;
     }
 }

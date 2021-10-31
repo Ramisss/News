@@ -55,16 +55,17 @@ class SignUp extends Component {
     }
 
     saveUser = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
         let user = {
             firstName: this.state.firstName,
-            lastName: this.state.userName,
+            userName: this.state.userName,
             email: this.state.email,
             phoneNumber: this.state.phoneNumber,
             password: this.state.password,
             age: this.state.age
         }
-        // console.log('user =>' + JSON.stringify(user));
+        console.log(user)
+        JSON.stringify(user);
         RegUserService.addUser(user).then(res => {
             // localStorage.setItem('clickToken', 'Bearer '+JSON.stringify(res.data))
             this.props.history.push('/login')
