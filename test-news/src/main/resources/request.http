@@ -39,13 +39,13 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzMGI2ZDY5My02MGZlLTQxMGEtO
 }
 
 ###
-PUT http://localhost:8090/api/editNews
+PUT http://localhost:8081/api/editNews
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzMGI2ZDY5My02MGZlLTQxMGEtOGU3Zi01MjY4MjAxZWEwNjMiLCJpYXQiOjE2MzU1OTU3NjEsImV4cCI6MTYzNjIwMDU2MX0.Xis_XRH2EGzrDn69_iCiJrbYdIyFZQaTHefv346oxcfD0oMrzz1iV8ZYPfdRwMshhEV44IpIIxxK4X1RqatfJA
 
 {
-  "newsTitle":"edit NEws AYYUBBIY",
-  "newsText":"EDIT TEXT AYYUBIY",
+  "newsTitle":"Изменить NEws AYYUBBIY",
+  "newsText":"Изменить TEXT AYYUBIY",
   "id":"f9350c6c-3cc2-4ae8-8349-3edc626d23e1"
 }
 ###
