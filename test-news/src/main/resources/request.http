@@ -1,0 +1,68 @@
+POST http://localhost:8082/api/auth/register
+Content-Type: application/json
+
+{
+  "firstName": "Ramz",
+  "userName": "Ramz",
+  "email": "ramz@inbox.ru",
+  "password": "root123"
+}
+
+
+###
+
+POST http://localhost:8082/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "ramz@inbox.ru",
+  "password": "root123"
+}
+
+###
+POST http://localhost:8082/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "ayyub@inbox.ru",
+  "password": "root123"
+}
+
+###
+POST http://localhost:8082/api/approvedNews?status=false&newsId=902d398c-8026-451f-8d0d-1d1a71377dc9
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzMGI2ZDY5My02MGZlLTQxMGEtOGU3Zi01MjY4MjAxZWEwNjMiLCJpYXQiOjE2MzU1Mzc4NjYsImV4cCI6MTYzNjE0MjY2Nn0.jxodoB0s6CBGOFEZ1DmS3W0S9x3kKBOm7JL3dN1vJiVxkGOJZAL0PxkegbpCCmV_lGTBvk3PtvvBLufRfjgzJw
+
+{
+  "newsTitle": "Title By Ramz_12",
+  "newsText": "Text by Ramz_12"
+}
+
+###
+PUT http://localhost:8090/api/editNews
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzMGI2ZDY5My02MGZlLTQxMGEtOGU3Zi01MjY4MjAxZWEwNjMiLCJpYXQiOjE2MzU1OTU3NjEsImV4cCI6MTYzNjIwMDU2MX0.Xis_XRH2EGzrDn69_iCiJrbYdIyFZQaTHefv346oxcfD0oMrzz1iV8ZYPfdRwMshhEV44IpIIxxK4X1RqatfJA
+
+{
+  "newsTitle":"edit NEws AYYUBBIY",
+  "newsText":"EDIT TEXT AYYUBIY",
+  "id":"f9350c6c-3cc2-4ae8-8349-3edc626d23e1"
+}
+###
+
+GET http://localhost:8082/api/allNewsForAdmin
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI5MzQwYTY4Mi04MTcxLTQ3NzUtYTdkZS00NGFlNDk4YTBjM2UiLCJpYXQiOjE2MzU1MzU1MjksImV4cCI6MTYzNjE0MDMyOX0.QKI6JZ0filqNZhycEEmrZzGyWvwUr7AjcB1Igy8eX3joosMWSpbup7S9X8-KRr8Lm1JfKkyQsBz_0K_Bi_MvFg
+
+###
+GET http://localhost:8090/api/allNews?page=1&size=2
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzMGI2ZDY5My02MGZlLTQxMGEtOGU3Zi01MjY4MjAxZWEwNjMiLCJpYXQiOjE2MzU1OTU3NjEsImV4cCI6MTYzNjIwMDU2MX0.Xis_XRH2EGzrDn69_iCiJrbYdIyFZQaTHefv346oxcfD0oMrzz1iV8ZYPfdRwMshhEV44IpIIxxK4X1RqatfJA
+
+{
+  "newsTitle": "Title By Ramz_12",
+  "newsText": "Text by Ramz_12"
+}
+
+
+
