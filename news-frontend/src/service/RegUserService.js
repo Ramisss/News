@@ -12,13 +12,10 @@ class RegUserService {
     }
 
 
-    logUser(e){
-        console.log(e)
-            return axios.post(BASE_URL_LOGIN, {email:e.target.value.email,password:e.target.value}).then(res=>{
-                console.log("res.payload")
-                console.log(res.payload)
+    logUser(user){
+        console.log( 'Это user',user)
+            return axios.post(BASE_URL_LOGIN,user)
 
-            })
     }
 
 

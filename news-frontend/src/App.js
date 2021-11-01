@@ -1,8 +1,8 @@
-// import React, {useState} from "react";
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import RegisterPage from "./components/RegisterPage";
-import LoginPage from "./components/LoginPage";
+import { Route, Switch} from 'react-router-dom';
 import SignUp from "./components/SignUp";
+import SignIn from "./components/SignIn";
+import Dashboard from "./components/Dashboard";
+import EnterTo from "./components/EnterTo";
 
 
 
@@ -11,16 +11,19 @@ function App() {
   return (
       <div className="wrapper">
           <h1>Application</h1>
-          <BrowserRouter>
+          <EnterTo/>
+
               <Switch>
                   <Route path="/register" >
                       <SignUp />
                   </Route>
                   <Route path="/login">
-                      <LoginPage />
+                      <SignIn/>
+                  </Route>
+                  <Route path="/dashboard">
+                      <Dashboard/>
                   </Route>
               </Switch>
-          </BrowserRouter>
       </div>
   );
 }

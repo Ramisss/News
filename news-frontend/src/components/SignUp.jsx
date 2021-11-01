@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import RegUserService from "../service/RegUserService";
+import {withRouter} from "react-router-dom";
 
 
 class SignUp extends Component {
@@ -68,16 +69,12 @@ class SignUp extends Component {
         JSON.stringify(user);
         RegUserService.addUser(user).then(res => {
             // localStorage.setItem('clickToken', 'Bearer '+JSON.stringify(res.data))
-            this.props.history.push('/login')
             alert("go to login");
+            this.props.history.push('/login')
             console.log(res);
         })
     }
 
-    // componentDidMount(e) {
-    //     e.preventDefault();
-    //
-    // }
 
 
     render() {
@@ -149,4 +146,4 @@ class SignUp extends Component {
     }
 }
 
-export default SignUp;
+export default  withRouter(SignUp);

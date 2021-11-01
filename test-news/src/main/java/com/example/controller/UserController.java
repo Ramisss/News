@@ -53,6 +53,7 @@ public class UserController {
             ));
             User user = (User) checkedUser.getPrincipal();
             String token = jwtTokenProvider.generateToken(user.getId());
+            System.out.println("Welcome to Dashboard");
             return ResponseEntity.ok(token);
         } catch (Exception e) {
             e.printStackTrace();
